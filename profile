@@ -30,9 +30,9 @@ unshift_path "/usr/local/mysql/bin"
 unshift_path "/usr/local/scala-2.8.1/bin"
 unshift_path "/usr/local/nginx/sbin"
 
-#if [ -f ~/bin/bash_completion ]; then
-#    . ~/bin/bash_completion
-#fi
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
+fi
 
 # virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
