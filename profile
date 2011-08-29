@@ -57,6 +57,7 @@ PS1='[\u:\w\[\033[0;32m\]$(__git_ps1 "(%s)")\033[0m]\$ '
 alias ll='ls -l'
 alias py26='workon py26'
 alias safari='open -a safari'
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 
 
