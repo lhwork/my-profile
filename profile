@@ -38,6 +38,23 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
+ve() {
+    if [[ $1 == */* ]]; then
+        source $1/bin/activate
+   	else
+   	    source $WORKON_HOME/$1/bin/activate
+    fi
+}
+
+_ve() {
+    COMPREPLY=()
+    if [[ $COMP_CWORD == 1 ]] ; then
+        COMPREPLY=( $(compgen -d $WORKON_HOME/${COMP_WORDS[COMP_CWORD]} | sed "s/\/.*\///") )
+        return 0
+    fi
+}
+complete -F _ve ve
+
 # golang
 export GOROOT=$HOME/Code/go
 unshift_path "$GOROOT/bin"
