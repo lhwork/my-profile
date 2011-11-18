@@ -64,17 +64,31 @@ if [ $IS_MAC_OS_X ]; then
     export ARCHFLAGS='-arch i386 -arch x86_64'
 fi
 
-# prompt
-source ~/bin/git-completion.bash
-source ~/bin/git-flow-completion.bash
-#PS1='[\u@\h:\w\[\033[0;32m\]$(__git_ps1 "(%s)")\033[0m]\$ '
-PS1='[\u:\w\[\033[0;32m\]$(__git_ps1 "(%s)")\033[0m]\$ '
+# git prompt
+if [ -f ~/bin/git-completion.bash ]; then
+    source ~/bin/git-completion.bash
+    #PS1='[\u@\h:\w\[\033[0;32m\]$(__git_ps1 "(%s)")\033[0m]\$ '
+    PS1='[\u:\w\[\033[0;32m\]$(__git_ps1 "(%s)")\033[0m]\$ '  
+fi
+if [ -f ~/bin/git-flow-completion.bash ]; then
+    source ~/bin/git-flow-completion.bash
+fi
+
+# hg
+if [ -f ~/bin/hg-completion.bash ]; then
+    source ~/bin/hg-completion.bash
+fi
+
+# svn
+if [ -f ~/bin/svn-completion.bash ]; then
+    source ~/bin/svn-completion.bash
+fi
 
 # alias
-alias ll='ls -l'
+alias ll='ls -lwG'   # w中文,G颜色
 alias py26='workon py26'
 alias safari='open -a safari'
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
-
+export EDITOR='vim'
 
