@@ -84,6 +84,11 @@ if [ -f ~/bin/svn-completion.bash ]; then
     source ~/bin/svn-completion.bash
 fi
 
+#rebar
+if [ -f ~/bin/rebar-completion.bash ]; then
+    source ~/bin/rebar-completion.bash
+fi
+
 # alias
 alias ll='ls -lwG'   # w中文,G颜色
 alias py26='workon py26'
