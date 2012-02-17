@@ -65,8 +65,8 @@ if [ $IS_MAC_OS_X ]; then
 fi
 
 # git prompt
-if [ -f ~/bin/git-completion.bash ]; then
-    source ~/bin/git-completion.bash
+if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
+    source /usr/local/git/contrib/completion/git-completion.bash
     #PS1='[\u@\h:\w\[\033[0;32m\]$(__git_ps1 "(%s)")\033[0m]\$ '
     PS1='[\u:\w\[\033[0;32m\]$(__git_ps1 "(%s)")\033[0m]\$ '  
 fi
