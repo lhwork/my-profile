@@ -92,7 +92,9 @@ fi
 # alias
 alias ll='ls -lwG'   # w中文,G颜色
 alias py26='workon py26'
-alias safari='open -a safari'
+alias safari='open -a "Safari"'
+alias chrome='open -a "Google Chrome"'
+alias finder='open -a "Finder"'
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 export EDITOR='vim'
