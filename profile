@@ -90,15 +90,16 @@ if [ -f ~/bin/rebar-completion.bash ]; then
 fi
 
 # alias
-alias ll     = 'ls -lwG'   # w中文,G颜色
-alias py26   = 'workon py26'
-alias safari = 'open -a "Safari"'
-alias chrome = 'open -a "Google Chrome"'
-alias finder = 'open -a "Finder"'
-alias tree   = "find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-alias vim    = '/Applications/MacVim.app/Contents/MacOS/Vim'
-alias vi     = '/Applications/MacVim.app/Contents/MacOS/Vim'
-alias gvim   = '/Applications/MacVim.app/Contents/MacOS/MacVim'
+alias ll='ls -lwG'   # w中文,G颜色
+alias py26='workon py26'
+alias safari='open -a "Safari"'
+alias chrome='open -a "Google Chrome"'
+alias finder='open -a "Finder"'
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
+alias pg='ps -ef|grep'
 
 export EDITOR='vim'
 
