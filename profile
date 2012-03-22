@@ -103,3 +103,5 @@ alias pg='ps -ef|grep'
 
 export EDITOR='vim'
 
+source ~/bin/my_local.bash
+
