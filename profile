@@ -22,16 +22,15 @@ unshift_path() {
     export PATH
 }
 
-unshift_path "/opt/local/bin"
-unshift_path "/opt/local/sbin"
-unshift_path "/usr/local/git/bin"
+unshift_path "/usr/local/bin"
+unshift_path "/usr/local/sbin"
 unshift_path "/usr/local/mongodb/bin"
 unshift_path "/usr/local/mysql/bin"
-unshift_path "/usr/local/scala-2.8.1/bin"
+unshift_path "/usr/local/scala/bin"
 unshift_path "/usr/local/nginx/sbin"
 
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
+if [ -f /usr/local/etc/bash_completion ]; then
+    . /usr/local/etc/bash_completion
 fi
 
 # virtualenv
@@ -55,39 +54,45 @@ _ve() {
 }
 complete -F _ve ve
 
-# golang
-export GOROOT=$HOME/Code/go
-unshift_path "$GOROOT/bin"
-
 # build mac os programs
 if [ $IS_MAC_OS_X ]; then
     export ARCHFLAGS='-arch i386 -arch x86_64'
 fi
 
 # git prompt
-if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
-    source /usr/local/git/contrib/completion/git-completion.bash
+if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+    source /usr/local/etc/bash_completion.d/git-prompt.sh
     #PS1='[\u@\h:\w\[\033[0;32m\]$(__git_ps1 "(%s)")\033[0m]\$ '
     PS1='[\u:\w\[\033[0;32m\]$(__git_ps1 "(%s)")\033[0m]\$ '  
 fi
-if [ -f ~/bin/git-flow-completion.bash ]; then
-    source ~/bin/git-flow-completion.bash
+if [ -f /usr/local/etc/bash_completion.d/git-flow-completion.bash ]; then
+    source /usr/local/etc/bash_completion.d/git-flow-completion.bash
 fi
 
 # hg
-if [ -f ~/bin/hg-completion.bash ]; then
-    source ~/bin/hg-completion.bash
+if [ -f /usr/local/etc/bash_completion.d/hg-completion.bash ]; then
+    source /usr/local/etc/bash_completion.d/hg-completion.bash
 fi
 
 # svn
-if [ -f ~/bin/svn-completion.bash ]; then
-    source ~/bin/svn-completion.bash
+if [ -f /usr/local/etc/bash_completion.d/svn-completion.bash ]; then
+    source /usr/local/etc/bash_completion.d/svn-completion.bash
+fi
+
+# golang
+if [ -f /usr/local/etc/bash_completion.d/go-completion.bash ]; then
+    source /usr/local/etc/bash_completion.d/go-completion.bash
 fi
 
 #rebar
 if [ -f ~/bin/rebar-completion.bash ]; then
     source ~/bin/rebar-completion.bash
 fi
+
+#erlang
+set ERL_MAX_PORTS=20480
+export ERL_MAX_PORTS
+#ulimit -n 20480
 
 # alias
 alias ll='ls -lwG'   # w中文,G颜色
@@ -100,6 +105,7 @@ alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
 alias pg='ps -ef|grep'
+alias mkve='mkvirtualenv --no-site-packages'
 
 export EDITOR='vim'
 
